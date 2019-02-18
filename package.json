@@ -8,6 +8,7 @@
     "@types/chrome": "^0.0.80",
     "archiver": "^3.0.0",
     "awesome-typescript-loader": "^5.2.1",
+    "chrome-webstore-manager": "^0.4.2",
     "clean-webpack-plugin": "^1.0.1",
     "copy-webpack-plugin": "^4.6.0",
     "typescript": "^3.3.3",
