@@ -1,0 +1,8 @@
+language: node_js
+node_js:
+  - "stable"
+script:
+  - npm run build -- $TRAVIS_BUILD_NUMBER
+after_success:
+  - chrome-webstore-manager update -t $(chrome-webstore-manager refresh_token --client_id $CLIENT_ID --client_secret $CLIENT_SECRET --refresh_token $REFRESH_TOKEN) $EXTENSION_ID ./build/jigsaw-filter.zip
+  - chrome-webstore-manager publish -t $(chrome-webstore-manager refresh_token --client_id $CLIENT_ID --client_secret $CLIENT_SECRET --refresh_token $REFRESH_TOKEN) $EXTENSION_ID

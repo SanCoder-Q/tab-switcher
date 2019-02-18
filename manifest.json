@@ -1,0 +1,36 @@
+{
+  "manifest_version": 2,
+  "name": "Tab Switcher",
+  "description": "A tab switcher",
+  "version": "0.0.1",
+  "icons": {
+    "16": "resources/icon_small.png",
+    "48": "resources/icon_small.png",
+    "128": "resources/icon_large.png"
+  },
+  "browser_action": {
+    "default_icon": {
+      "16": "resources/icon_small.png",
+      "48": "resources/icon_small.png",
+      "128": "resources/icon_large.png"
+    }
+  },
+  "background": {
+    "scripts": ["bundle.min.js"]
+  },
+  "commands": {
+    "switchTab": {
+      "suggested_key": {
+        "default": "Alt+A"
+      },
+      "description": "Switch current tab with last tab"
+    }
+  },
+  "permissions": [
+    "storage",
+    "commands",
+    "tabs"
+  ],
+  "content_security_policy": "script-src 'self'; object-src 'self'",
+  "homepage_url": "https://github.com/SanCoder-Q/tab-switcher"
+}

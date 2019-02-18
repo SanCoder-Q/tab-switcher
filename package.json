@@ -1,0 +1,21 @@
+{
+  "version": "0.0.1",
+  "name": "tab-switcher",
+  "author": "jmqu",
+  "email": "sancoder.q@gmail.com",
+  "private": true,
+  "devDependencies": {
+    "@types/chrome": "^0.0.80",
+    "archiver": "^3.0.0",
+    "awesome-typescript-loader": "^5.2.1",
+    "clean-webpack-plugin": "^1.0.1",
+    "copy-webpack-plugin": "^4.6.0",
+    "typescript": "^3.3.3",
+    "uglifyjs-webpack-plugin": "^2.1.1",
+    "webpack": "^4.29.4",
+    "webpack-cli": "^3.2.3"
+  },
+  "scripts": {
+    "build": "webpack --config webpack.config.js && node ./ci/build.js"
+  }
+}
