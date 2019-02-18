@@ -21,9 +21,9 @@
   "commands": {
     "switchTab": {
       "suggested_key": {
-        "default": "Alt+A"
+        "default": "Alt+Q"
       },
-      "description": "Switch current tab with last tab"
+      "description": "Switch to recent tab"
     }
   },
   "permissions": [
