@@ -1,8 +1,8 @@
 var fs = require('fs'),
     archiver = require('archiver'),
-    manifestPath = `${__dirname}/manifest.json`,
-    buildPath = `${__dirname}/dist/build`,
-    compiledPath = `${__dirname}/dist/compiled`,
+    manifestPath = `${__dirname}/../manifest.json`,
+    buildPath = `${__dirname}/../dist/build`,
+    compiledPath = `${__dirname}/../dist/compiled`,
     manifest = JSON.parse(fs.readFileSync(manifestPath));
 
 var isLocalBuild = process.env.TRAVIS_BRANCH === undefined;

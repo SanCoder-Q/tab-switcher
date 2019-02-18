@@ -7,6 +7,8 @@
 #+Author: Jianming Qu
 #+Email: sancoder.q@gmail.com
 
+[[https://travis-ci.org/SanCoder-Q/tab-switcher][https://travis-ci.org/SanCoder-Q/tab-switcher.svg?branch=master]]
+
 ** Intro
 A chrome tab switcher.
 
