@@ -18,7 +18,7 @@ function bump() {
   if (BUILD_VERSION) {
     var version = manifest.version.split('.');
     manifest.version = `${version[0]}.${version[1]}.${BUILD_VERSION}`;
-    fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 4));
+    fs.writeFileSync(`${compiledPath}/manifest.json`, JSON.stringify(manifest, null, 4));
   }
   console.log('Current Version: ' + manifest.version);
 }

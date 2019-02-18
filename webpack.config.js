@@ -34,7 +34,6 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin([DIST_PATH], {allowExternal: true}),
     new CopyPlugin([
-      { from: 'manifest.json', to: DIST_PATH },
       { from: 'resources', to: `${DIST_PATH}/resources` }
     ])
   ]
