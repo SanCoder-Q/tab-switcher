@@ -3,7 +3,7 @@
 #+STARTUP: show-all
 #+PROPERTY: header-args :results silent
 
-#+TITLE: ThoughtWorks jigsaw assignment filter
+#+TITLE: Chrome tab switcher
 #+Author: Jianming Qu
 #+Email: sancoder.q@gmail.com
 
@@ -11,4 +11,7 @@
 
 ** Intro
 A chrome tab switcher.
+
+** Usage
+Add to your browser from https://chrome.google.com/webstore/detail/tab-switcher/jmihjpkeaeknejefhonkbgldenaplegj/related
 
