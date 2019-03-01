@@ -7,17 +7,16 @@ var fs = require('fs'),
 
 var isLocalBuild = process.env.TRAVIS_BRANCH === undefined;
 var BUILD_VERSION = process.argv[2];
-if (isLocalBuild) {
-  pack();
-} else {
-  bump();
-  pack();
-}
 
-function bump() {
-  if (BUILD_VERSION) {
+addManifest();
+pack();
+
+function addManifest() {
+  if (!isLocalBuild) {
     var version = manifest.version.split('.');
     manifest.version = `${version[0]}.${version[1]}.${BUILD_VERSION}`;
+    fs.writeFileSync(`${compiledPath}/manifest.json`, JSON.stringify(manifest, null, 4));
+  } else {
     fs.writeFileSync(`${compiledPath}/manifest.json`, JSON.stringify(manifest, null, 4));
   }
   console.log('Current Version: ' + manifest.version);

@@ -9,7 +9,8 @@
     "module": "commonjs",
     "outDir": "./dist/compile/",
     "strict": true,
-    "baseUrl": "./"
+    "baseUrl": "./",
+    "lib": ["es6", "dom"]
   },
   "include": ["./src/**/*"]
 }

@@ -24,6 +24,12 @@
         "default": "Alt+Q"
       },
       "description": "Switch to recent tab"
+    },
+    "moveTabCrossWindow": {
+      "suggested_key": {
+        "default": "Alt+W"
+      },
+      "description": "Move current tab to next window"
     }
   },
   "permissions": [
