@@ -12,6 +12,8 @@
 [[https://chrome.google.com/webstore/detail/simple-tab-switcher/jmihjpkeaeknejefhonkbgldenaplegj][https://img.shields.io/chrome-web-store/v/jmihjpkeaeknejefhonkbgldenaplegj.svg?style=flat&logo=google-chrome&color=green]]
 [[https://chrome.google.com/webstore/detail/simple-tab-switcher/jmihjpkeaeknejefhonkbgldenaplegj][https://img.shields.io/chrome-web-store/stars/jmihjpkeaeknejefhonkbgldenaplegj.svg?style=flat&color=green]]
 
+[[./resources/p_icon.png]]
+
 ** Intro
 A chrome tab switcher. Enable a shortcut to switch the current tab to latest one.
 
