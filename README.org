@@ -8,6 +8,9 @@
 #+Email: sancoder.q@gmail.com
 
 [[https://travis-ci.org/SanCoder-Q/tab-switcher][https://travis-ci.org/SanCoder-Q/tab-switcher.svg?branch=master]]
+[[https://chrome.google.com/webstore/detail/simple-tab-switcher/jmihjpkeaeknejefhonkbgldenaplegj][https://img.shields.io/chrome-web-store/users/jmihjpkeaeknejefhonkbgldenaplegj.svg?style=flat&logo=google-chrome]]
+[[https://chrome.google.com/webstore/detail/simple-tab-switcher/jmihjpkeaeknejefhonkbgldenaplegj][https://img.shields.io/chrome-web-store/v/jmihjpkeaeknejefhonkbgldenaplegj.svg?style=flat&logo=google-chrome&color=green]]
+[[https://chrome.google.com/webstore/detail/simple-tab-switcher/jmihjpkeaeknejefhonkbgldenaplegj][https://img.shields.io/chrome-web-store/stars/jmihjpkeaeknejefhonkbgldenaplegj.svg?style=flat&color=green]]
 
 ** Intro
 A chrome tab switcher. Enable a shortcut to switch the current tab to latest one.
