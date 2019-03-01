@@ -10,7 +10,11 @@
 [[https://travis-ci.org/SanCoder-Q/tab-switcher][https://travis-ci.org/SanCoder-Q/tab-switcher.svg?branch=master]]
 
 ** Intro
-A chrome tab switcher.
+A chrome tab switcher. Enable a shortcut to switch the current tab to latest one.
+
+** Usage
+
+The default shortcut is `Alt + q` (`Option + q`) on MacOs. You can change it through the [chrome extension shortcut setup page](chrome://extensions/shortcuts).
 
 ** Usage
 Add to your browser from https://chrome.google.com/webstore/detail/tab-switcher/jmihjpkeaeknejefhonkbgldenaplegj/related
