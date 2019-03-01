@@ -34,7 +34,8 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin([DIST_PATH], {allowExternal: true}),
     new CopyPlugin([
-      { from: 'resources', to: `${DIST_PATH}/resources` }
+      { from: 'resources/90.png', to: `${DIST_PATH}/resources` },
+      { from: 'resources/128.png', to: `${DIST_PATH}/resources` }
     ])
   ]
 };
