@@ -15,11 +15,14 @@
 [[./resources/p_icon.png]]
 
 ** Intro
-A chrome tab switcher. Enable a shortcut to switch the current tab to latest one.
+A chrome tab switcher. Enable a shortcut to switch the current tab to latest one. Furthermore, another shortcut to switch the current tab through different windows has also added.
 
-** Usage
+** Shortcuts
 
-The default shortcut is ~Alt + q~ (~Option + q~) on MacOs. You can change it through the *chrome://extensions/shortcuts*.
+- The default shortcut to switch tabs is ~Alt + q~ (~Option + q~) on MacOs.
+- The default shortcut to switch windows is ~Alt + w~ (~Option + w) on MacOs.
+
+*P.S.* You can change it through the *chrome://extensions/shortcuts*.
 
 ** Usage
 Add to your browser from https://chrome.google.com/webstore/detail/tab-switcher/jmihjpkeaeknejefhonkbgldenaplegj/related
