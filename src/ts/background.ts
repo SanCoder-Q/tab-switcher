@@ -108,18 +108,22 @@ commands.onCommand.addListener((command: string) => {
         }
 
         getCurrent().then((tab) => {
-          const index = normalWindows.reduce(
-            (result, window, index) => window.id === tab.windowId ? index : result,
-            -1
-          );
-          if (index === -1) {
-            return;
-          }
+          if (normalWindows.length === 1) {
+            windows.create({ tabId: tab.id, focused: true });
+          } else {
+            const index = normalWindows.reduce(
+              (result, window, index) => window.id === tab.windowId ? index : result,
+              -1
+            );
+            if (index === -1) {
+              return;
+            }
 
-          const windowId = normalWindows[(index + 1) % normalWindows.length].id;
-          tabs.move([ tab.id! ], { windowId, index: -1 });
-          windows.update(windowId, { focused: true });
-          tabs.update(tab.id!, { active: true });
+            const windowId = normalWindows[(index + 1) % normalWindows.length].id;
+            tabs.move([tab.id!], { windowId, index: -1 });
+            windows.update(windowId, { focused: true });
+            tabs.update(tab.id!, { active: true });
+          }
         });
       });
     }
