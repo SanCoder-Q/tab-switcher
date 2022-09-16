@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Simple Tab Switcher",
-  "description": "A chrome tab switcher which enables a shortcut to switch the current tab to latest one.",
+  "description": "A Chrome tab switcher which enables a shortcut to switch the current tab to latest one.",
   "version": "0.1.1",
   "icons": {
     "16": "resources/90.png",

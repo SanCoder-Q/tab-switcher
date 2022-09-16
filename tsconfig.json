@@ -6,6 +6,7 @@
     "noUnusedParameters": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
+    "skipLibCheck": true,
     "module": "commonjs",
     "outDir": "./dist/compile/",
     "strict": true,

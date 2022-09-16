@@ -121,7 +121,7 @@ commands.onCommand.addListener((command: string) => {
 
             const windowId = normalWindows[(index + 1) % normalWindows.length].id;
             tabs.move([tab.id!], { windowId, index: -1 });
-            windows.update(windowId, { focused: true });
+            windows.update(windowId!, { focused: true });
             tabs.update(tab.id!, { active: true });
           }
         });

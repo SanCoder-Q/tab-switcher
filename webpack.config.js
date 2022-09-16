@@ -1,6 +1,4 @@
 'use strict';
-const CleanWebpackPlugin = require('clean-webpack-plugin');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 
 const path = require('path');
@@ -18,7 +16,8 @@ module.exports = {
   output: {
     publicPath: '/',
     path: DIST_PATH,
-    filename: 'bundle.min.js'
+    filename: 'bundle.min.js',
+    clean: true
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.json']
@@ -28,14 +27,12 @@ module.exports = {
       { test: /\.tsx?$/, loader: 'awesome-typescript-loader' }
     ]
   },
-  optimization: {
-    minimizer: [new UglifyJsPlugin()],
-  },
   plugins: [
-    new CleanWebpackPlugin([DIST_PATH], {allowExternal: true}),
-    new CopyPlugin([
-      { from: 'resources/90.png', to: `${DIST_PATH}/resources` },
-      { from: 'resources/128.png', to: `${DIST_PATH}/resources` }
-    ])
+    new CopyPlugin({
+      patterns: [
+        { from: 'resources/90.png', to: `${DIST_PATH}/resources` },
+        { from: 'resources/128.png', to: `${DIST_PATH}/resources` }
+      ]
+    })
   ]
 };
