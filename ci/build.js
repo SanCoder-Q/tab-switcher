@@ -26,14 +26,14 @@ function pack() {
   console.log('Zipping ...');
   fs.existsSync(buildPath) || fs.mkdirSync(buildPath);
   var output = fs.createWriteStream(`${buildPath}/tab-switcher.zip`);
-  var archive = archiver('zip');
+  var archive = archiver('zip', { zlib: { level: 9 } });
   output.on('close', function() {
-    console.log(`Artifact: build/tab-switcher.zip(${archive.pointer()} bytes)`);
+    console.log(`Artifact: build/tab-switcher.zip (${archive.pointer()} bytes)`);
   });
   archive.on('error', function(err) {
     throw err;
   });
   archive.pipe(output);
-  archive.glob(`${compiledPath}/**/*`);
+  archive.glob(`**/*`, { cwd:compiledPath });
   archive.finalize();
 }
