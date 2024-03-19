@@ -25,6 +25,7 @@ export const createSwitchTabStrategy = (stack: Stack<ControlledTab>) => new Stra
       await stack.push(current);
     }
     if (!previous) {
+      console.debug('[DEBUG] no previous tab, ignore it');
       return;
     }
     tabs.update(previous.tabId, { active: true });

@@ -13,6 +13,7 @@ export class Stack<T> {
   constructor(public equals: (a: T, b: T) => boolean) {}
 
   async pop(): Promise<T | null> {
+    await this._sync();
     const value = this._stack.pop() || null;
     this._bumpUp();
     await this._sync();
@@ -20,6 +21,7 @@ export class Stack<T> {
   }
 
   async push(value: T): Promise<void> {
+    await this._sync();
     this._stack.push(value);
     this._uniq();
     this._bumpUp();
@@ -49,6 +51,7 @@ export class Stack<T> {
       await this._storage.set(this._storageKey, new StackInHouse<T>(this._version, this._stack));
     }
     else if (store.version > this._version) {
+      console.log('[DEBUG] lost memory data, recovering from storage', this._version, '->', store.version);
       this._version = store.version;
       this._stack = store.stack;
     }
