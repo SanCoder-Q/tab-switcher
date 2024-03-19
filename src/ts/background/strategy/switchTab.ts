@@ -21,10 +21,12 @@ export const createSwitchTabStrategy = (stack: Stack<ControlledTab>) => new Stra
   async (): Promise<void> => {
     const current = await stack.pop();
     const previous = await getNextValidTab(stack);
+    if (current) {
+      await stack.push(current);
+    }
     if (!previous) {
       return;
     }
-    await stack.push(current!);
     tabs.update(previous.tabId, { active: true });
     windows.update(previous.windowId, { focused: true });
   }
