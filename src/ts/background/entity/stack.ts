@@ -1,10 +1,14 @@
 import { Storage } from '../repo/storage';
 
-class StackInHouse<T> {
+type Stringifible = {
+  toString(): string;
+}
+
+class StackInHouse<T extends Stringifible> {
   constructor(public version: number, public stack: T[]){}
 }
 
-export class Stack<T> {
+export class Stack<T extends Stringifible> {
   private _stack: T[] = [];
   private _version: number = 0;
   private _storage: Storage<StackInHouse<T>> = new Storage<StackInHouse<T>>();
@@ -14,8 +18,9 @@ export class Stack<T> {
 
   async pop(): Promise<T | null> {
     await this._sync();
-    const value = this._stack.pop() || null;
+    const value = this._stack.pop() ?? null;
     this._bumpUp();
+    console.debug('[DEBUG] popping', value?.toString(), 'from', this._stackToString(), 'version', this._version);
     await this._sync();
     return value;
   }
@@ -25,6 +30,7 @@ export class Stack<T> {
     this._stack.push(value);
     this._uniq();
     this._bumpUp();
+    console.debug('[DEBUG] pushing', this._stackToString(), 'version', this._version);
     await this._sync();
   }
 
@@ -45,15 +51,22 @@ export class Stack<T> {
     this._version ++;
   }
 
+  private _stackToString(): string {
+    return '[' + this._stack.map(t => t.toString()).join(', ') + ']';
+  }
+
   private async _sync(): Promise<void> {
-    const store = await this._storage.get(this._storageKey);
-    if (store.version < this._version) {
-      await this._storage.set(this._storageKey, new StackInHouse<T>(this._version, this._stack));
-    }
-    else if (store.version > this._version) {
-      console.log('[DEBUG] lost memory data, recovering from storage', this._version, '->', store.version);
-      this._version = store.version;
-      this._stack = store.stack;
+    try {
+      const store = await this._storage.get(this._storageKey);
+      if (store.version < this._version) {
+        await this._storage.set(this._storageKey, new StackInHouse<T>(this._version, this._stack));
+      } else if (store.version > this._version) {
+        console.log('[DEBUG] lost memory data, recovering from storage', this._version, '->', store.version);
+        this._version = store.version;
+        this._stack = store.stack;
+      }
+    } catch (e) {
+      console.error('[ERROR] fail to sync with chrome storage', e);
     }
   }
 }

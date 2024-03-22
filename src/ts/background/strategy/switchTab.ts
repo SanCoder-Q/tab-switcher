@@ -28,7 +28,13 @@ export const createSwitchTabStrategy = (stack: Stack<ControlledTab>) => new Stra
       console.debug('[DEBUG] no previous tab, ignore it');
       return;
     }
-    tabs.update(previous.tabId, { active: true });
-    windows.update(previous.windowId, { focused: true });
+    try {
+      await Promise.all([
+        tabs.update(previous.tabId, { active: true }),
+        windows.update(previous.windowId, { focused: true })]
+      );
+    } catch (e) {
+      console.error('[ERROR] error to activate the tab', previous.tabId, e);
+    }
   }
 );

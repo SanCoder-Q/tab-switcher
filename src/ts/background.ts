@@ -20,6 +20,10 @@ windows.onFocusChanged.addListener(async (windowId) => {
     return;
   }
   const currentTab = await getCurrent();
+  if (!currentTab) {
+    console.debug('[DEBUG] illegal tab');
+    return;
+  }
   console.debug('[DEBUG] focusing on window', windowId);
   if (windowId === currentTab.windowId) {
     console.debug('[DEBUG] new tab', currentTab.tabId, 'in window', currentTab.windowId);
