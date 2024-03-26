@@ -58,7 +58,7 @@ export class Stack<T extends Stringifible> {
   private async _sync(): Promise<void> {
     try {
       const store = await this._storage.get(this._storageKey);
-      if (store.version < this._version) {
+      if (!store.version || store.version < this._version) {
         await this._storage.set(this._storageKey, new StackInHouse<T>(this._version, this._stack));
       } else if (store.version > this._version) {
         console.log('[DEBUG] lost memory data, recovering from storage', this._version, '->', store.version);
