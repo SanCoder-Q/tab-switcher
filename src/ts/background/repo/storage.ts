@@ -1,7 +1,7 @@
 const { tabs, storage, commands, windows } = chrome;
 
 export class Storage<T> {
-  get(key: string): Promise<T> {
+  get(key: string): Promise<T | undefined> {
     return storage.local.get([key]).then(data => data[key] as T);
   }
 
