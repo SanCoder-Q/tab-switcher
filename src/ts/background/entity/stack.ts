@@ -12,7 +12,8 @@ export class Stack<T extends Stringifible> {
   private _stack: T[] = [];
   private _version: number = 0;
   private _storage: Storage<StackInHouse<T>> = new Storage<StackInHouse<T>>();
-  private readonly _storageKey: string = "TAB_SWITCHER_TAB_STACK_DATA"
+  private readonly _storageKey: string = "TAB_SWITCHER_TAB_STACK_DATA";
+  private readonly _maxStackDepth: number = 300;
 
   constructor(public equals: (a: T, b: T) => boolean) {}
 
@@ -44,7 +45,7 @@ export class Stack<T extends Stringifible> {
         acc.unshift(item);
       }
       return acc;
-    }, []);
+    }, []).slice(0, this._maxStackDepth);
   }
 
   private _bumpUp(): void {
